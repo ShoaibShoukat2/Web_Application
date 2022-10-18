@@ -1,0 +1,83 @@
+{% extends 'NavBar.html' %} {% load static %} {% block content %}
+<title>HomePage</title>
+<link rel="stylesheet" href="{% static 'app\css\index.css' %}" />
+
+<div class="menulist2">
+  <ul>
+    <li><a href="#">Home</a></li>
+  </ul>
+
+</div>
+
+  
+
+
+<container>
+  <div class="slider-container">
+    <div class="slider"></div>
+  </div>
+</container>
+
+
+
+<div class="heading">Products</div>
+
+
+
+
+<div class="ProductControlCN">
+  <div class="categorybox">
+    {% for ctr in categories %}
+    <li><a href="/?category={{ctr.id}}">{{ctr.name}}</a></li>
+    {% endfor %}
+
+
+
+  </div>
+
+<div class="shop">
+   {% for prd in Products %}
+  <div class="product-box " style="padding:3px">
+    <div class="pic">
+      <img
+        src="{{prd.image.url}}"
+        alt="Somthing went wrong"
+        class="Product-image"
+      />
+    </div>
+    <div class="Product_details">
+      <h2>{{prd.name}}</h2>
+      <span class="price"><h3>{{prd.price}}</h3></span>
+      <p class="description">{{prd.description}}</p>
+      <i class="fa fa-star" style="color: #e0e00b"></i>
+      <i class="fa fa-star" style="color: #e0e00b"></i>
+      <i class="fa fa-star" style="color: #e0e00b"></i>
+      <i class="fa fa-star" style="color: #e0e00b"></i>
+      <i class="fa fa-star" style="color: #e0e00b"></i>
+      <div class="main">
+        <form class="btn" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-success">ADD TO CART</button>
+          <!-- <button  class="minbtn">-</button>
+        <button  class="mainbtn">ADD TO CART</button>
+        <button  class="pusbtn">+</button> -->
+        <input hidden type="text" name="productID"  value="{{prd.id}}">
+        </form>
+        
+        
+      </div>
+    </div>
+  </div>
+  {% endfor %} 
+  </div> 
+
+  
+  
+  </div>
+  <script
+    type="text/javascript"
+    src="{% static 'app\Java\index.js' %}"
+  >
+</script>
+</div>
+{% endblock %}

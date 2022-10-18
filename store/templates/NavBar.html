@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'app\css\NavBar1.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Nav bar starts-->
+    <nav>
+      <div class="menu-bar">
+        <span class="fa fa-bars"></span>
+      </div>
+      <div class="logo">S~electronics</div>
+      <div class="items">
+        <ul>
+          <li><a href="/">Home</a></li>
+
+          <li><a href="/">Contact</a></li>
+          <li><a href="loginPage">Login</a></li>
+          <li><a href="customer_registration">Signup</a></li>
+        </ul>
+      </div>
+
+      <div class="search-icon">
+        <a type="submit" class="fa fa-search" aria-hidden="true"></a>
+      </div>
+
+      <form action="search" method="get">
+        <input
+          name="query"
+          id="query"
+          id="input"
+          type="search"
+          placeholder="search"
+          class="search-box"
+        />
+        <button type="submit" class="fa fa-search"></button>
+      </form>
+    </nav>
+  </body>
+  <script
+    type="text/javascript"
+    src="{% static 'app\Java\NavBar.js' %}"
+  ></script>
+  {% block content %} {% endblock %}
+</html>
